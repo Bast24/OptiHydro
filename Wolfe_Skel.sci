@@ -61,7 +61,7 @@ function [alphan,ok]=Wolfe(alpha,x,D,Oracle)
 
    while ok == 0
       
-      xp = xn;
+      xp = x;
       xn = x + (alphan*D);
 
       // Calcul des conditions de Wolfe

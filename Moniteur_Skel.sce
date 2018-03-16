@@ -60,7 +60,7 @@
 
    // Exemple : la fonction "optim" de Scilab
    //
-   [fopt,xopt,gopt] = Newton(OraclePG,xini);
+   [fopt,xopt,gopt] = Newton(OraclePH,xini);
 
    // -----> A completer...
 

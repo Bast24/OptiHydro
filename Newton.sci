@@ -19,7 +19,7 @@ function [fopt,xopt,gopt]=Newton(Oracle,xini)
              "Valeur du pas";...
              "Seuil de convergence sur ||G||"];
    typ = list("vec",1,"vec",1,"vec",1);
-   default = ["5000";"0.0005";"0.000001"];
+   default = ["5000";"1";"0.000001"];
    [ok,iter,alphai,tol] = getvalue(titre,labels,typ,default);
 
 // ----------------------------
@@ -43,7 +43,7 @@ function [fopt,xopt,gopt]=Newton(Oracle,xini)
 
 //    - valeur du critere et du gradient
 
-      ind = 6;
+      ind = 7;
       [F,G,H] = Oracle(x,ind);
 
 //    - test de convergence
