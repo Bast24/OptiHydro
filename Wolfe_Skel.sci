@@ -61,28 +61,26 @@ function [alphan,ok]=Wolfe(alpha,x,D,Oracle)
 
    while ok == 0
       
-      xp = x;
+      xp = xn;
       xn = x + (alphan*D);
 
       // Calcul des conditions de Wolfe
        [F2,G2] = Oracle(xn, ind);
        
-       wolf1 = F2 - F <= omega1 * alphan * D'*G;
+       wolf1 = F2 - F <= omega1 * alphan * (G'*D);
+       wolf2 = G2'*D >= omega2 * G'*D;
        
-       if ~wolf1 then
+       if wolf1 & wolf2 then
+           ok = 1;
+       elseif ~wolf1 then
            alphamax = alphan;
            alphan = (alphamin + alphamax)/2;
        else
-           wolf2 = D'*G2 >= omega2 * D'*G;
-           if ~wolf2 then
-               alphamin = alphan;
-               if alphamax == %inf then
-                   alphan = 2*alphamin;
-               else
-                   alphan = (alphamin + alphamax)/2;
-               end
+           alphamin=alphan
+           if alphamax == %inf then
+               alphan = 2 * alphamin;
            else
-               ok = 1;
+               alphan = (alphamax + alphamin)/2;
            end
        end
 

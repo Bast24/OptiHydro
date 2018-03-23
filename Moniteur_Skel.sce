@@ -41,7 +41,7 @@
    exec('Oracle.sce');
    exec('Optim_Scilab.sci');
    titrgr = "Fonction optim de Scilab sur le probleme primal";
-
+   exec('Wolfe_Skel.sci');
    exec('Gradient_F.sci');
    exec('BFGS.sci');
    exec('Newton.sci');
@@ -60,7 +60,7 @@
 
    // Exemple : la fonction "optim" de Scilab
    //
-   [fopt,xopt,gopt] = Newton(OraclePH,xini);
+   [fopt,xopt,gopt] = BFGS(OraclePG,xini);
 
    // -----> A completer...
 

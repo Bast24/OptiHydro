@@ -1,4 +1,4 @@
-function [fopt,xopt,gopt]=Quasi_Newton(Oracle,xini)
+function [fopt,xopt,gopt]=BFGS(Oracle,xini)
 
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -59,7 +59,7 @@ function [fopt,xopt,gopt]=Quasi_Newton(Oracle,xini)
 
 //    - calcul de la longueur du pas de gradient
 
-      alpha = alphai;
+      alpha = Wolfe(alphai,x,D,Oracle);
 
 //    - mise a jour des variables
 
@@ -73,7 +73,7 @@ function [fopt,xopt,gopt]=Quasi_Newton(Oracle,xini)
 
 //    - Approximation de la hessienne
 
-      W = (eye(n-md,n-md) - (deltaxk*deltagk')/(deltagk'*deltaxk)) * W * (eye(n-md,n-md) - (deltaxk*deltagk')/(deltagk'*deltaxk)) + (eye(n-md,n-md) - (deltaxk*deltagk')/(deltagk'*deltaxk));
+      W = (eye(n-md,n-md) - (deltaxk*deltagk')/(deltagk'*deltaxk)) * W * (eye(n-md,n-md) - (deltaxk*deltagk')/(deltagk'*deltaxk)) + (deltaxk*deltagk')/(deltagk'*deltaxk);
 
 //    - evolution du gradient, du pas et du critere
 
