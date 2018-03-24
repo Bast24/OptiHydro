@@ -28,6 +28,8 @@
    exec('HydrauliqueP.sci');
    exec('HydrauliqueD.sci');
    exec('Verification.sci');
+   exec('Gradient_V.sci');
+   exec('Polak_Ribiere.sci');
 
 // ------------------------------------------
 // Fonctions a ecrire dans le cadre du projet
@@ -58,11 +60,7 @@
 // Minimisation proprement dite
 // ----------------------------
 
-   // Exemple : la fonction "optim" de Scilab
-   //
-   [fopt,xopt,gopt] = BFGS(OraclePG,xini);
-
-   // -----> A completer...
+   [fopt,xopt,gopt] = BFGS(OraclePG, xini);
 
 // --------------------------
 // Verification des resultats

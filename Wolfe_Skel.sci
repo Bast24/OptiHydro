@@ -91,8 +91,8 @@ function [alphan,ok]=Wolfe(alpha,x,D,Oracle)
       end
       
       // Actualisation des valeurs de la fonction
-      F = F2;
-      G = G2;
+      //F = F2;
+      //G = G2;
       
    end
 
