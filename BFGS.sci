@@ -35,9 +35,12 @@ function [fopt,xopt,gopt]=BFGS(Oracle,xini)
 // -------------------------
 // Boucle sur les iterations
 // -------------------------
-
+   
    x = xini;
-   W = eye(n-md,n-md);
+   [F,G] = Oracle(xini,4); // pour récupérer la dimension de W
+   W_size = length(G)
+   
+   W = eye(W_size,W_size);
 
    kstar = iter;
    for k = 1:iter
@@ -73,7 +76,7 @@ function [fopt,xopt,gopt]=BFGS(Oracle,xini)
 
 //    - Approximation de la hessienne
 
-      W = (eye(n-md,n-md) - (deltaxk*deltagk')/(deltagk'*deltaxk)) * W * (eye(n-md,n-md) - (deltaxk*deltagk')/(deltagk'*deltaxk)) + (deltaxk*deltagk')/(deltagk'*deltaxk);
+      W = (eye(W_size,W_size) - (deltaxk*deltagk')/(deltagk'*deltaxk)) * W * (eye(W_size,W_size) - (deltaxk*deltagk')/(deltagk'*deltaxk)) + (deltaxk*deltagk')/(deltagk'*deltaxk);
 
 //    - evolution du gradient, du pas et du critere
 
