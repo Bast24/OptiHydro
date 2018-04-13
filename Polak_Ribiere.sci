@@ -59,16 +59,12 @@ function [fopt,xopt,gopt]=Polak_Ribiere(Oracle,xini)
       end
 
 //    - calcul de la direction de descente
-      
-//      if G<1e-8 then
-//          G = G2;
-//      end 
 
       if k == 1 then
           D = -G;
       else
           pas_polak = G'*(G-G2)/(norm(G2)^2);
-          D = -G-pas_polak*G2;
+          D = -G+pas_polak*D;
       end
 
 //    - calcul de la longueur du pas de gradient
