@@ -5,7 +5,7 @@ function [fopt,xopt,gopt]=Polak_Ribiere(Oracle,xini)
 //                                                                           //
 //         RESOLUTION D'UN PROBLEME D'OPTIMISATION SANS CONTRAINTES          //
 //                                                                           //
-//         Methode de gradient a pas fixe                                    //
+//                       Methode de Polak-Ribiere                            //
 //                                                                           //
 ///////////////////////////////////////////////////////////////////////////////
 
@@ -19,7 +19,7 @@ function [fopt,xopt,gopt]=Polak_Ribiere(Oracle,xini)
              "Valeur initale du pas de gradient";...
              "Seuil de convergence sur ||G||"];
    typ = list("vec",1,"vec",1,"vec",1);
-   default = ["5000";"0.0005";"0.000001"];
+   default = ["5000";"1";"0.000001"];
    [ok,iter,alphai,tol] = getvalue(titre,labels,typ,default);
 
 // ----------------------------

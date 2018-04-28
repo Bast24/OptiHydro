@@ -5,7 +5,7 @@ function [fopt,xopt,gopt]=Newton(Oracle,xini)
 //                                                                           //
 //         RESOLUTION D'UN PROBLEME D'OPTIMISATION SANS CONTRAINTES          //
 //                                                                           //
-//         Methode de Newton                                           //
+//                           Methode de Newton                               //
 //                                                                           //
 ///////////////////////////////////////////////////////////////////////////////
 

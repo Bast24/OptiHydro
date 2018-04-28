@@ -28,8 +28,6 @@
    exec('HydrauliqueP.sci');
    exec('HydrauliqueD.sci');
    exec('Verification.sci');
-   exec('Gradient_V.sci');
-   exec('Polak_Ribiere.sci');
 
 // ------------------------------------------
 // Fonctions a ecrire dans le cadre du projet
@@ -47,6 +45,8 @@
    exec('Gradient_F.sci');
    exec('BFGS.sci');
    exec('Newton.sci');
+   exec('Gradient_V.sci');
+   exec('Polak_Ribiere.sci');
 
 // ------------------------------
 // Initialisation de l'algorithme
@@ -60,7 +60,7 @@
 // Minimisation proprement dite
 // ----------------------------
 
-   [fopt,xopt,gopt] = BFGS(OraclePG, xini);
+   [fopt,xopt,gopt] = Newton(OraclePH, xini);
 
 // --------------------------
 // Verification des resultats

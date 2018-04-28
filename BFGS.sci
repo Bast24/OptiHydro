@@ -5,7 +5,7 @@ function [fopt,xopt,gopt]=BFGS(Oracle,xini)
 //                                                                           //
 //         RESOLUTION D'UN PROBLEME D'OPTIMISATION SANS CONTRAINTES          //
 //                                                                           //
-//         Methode de Quasi-Newton                                           //
+//                        Methode de Quasi-Newton                            //
 //                                                                           //
 ///////////////////////////////////////////////////////////////////////////////
 
@@ -19,7 +19,7 @@ function [fopt,xopt,gopt]=BFGS(Oracle,xini)
              "Valeur du pas de gradient";...
              "Seuil de convergence sur ||G||"];
    typ = list("vec",1,"vec",1,"vec",1);
-   default = ["5000";"0.0005";"0.000001"];
+   default = ["5000";"1";"0.000001"];
    [ok,iter,alphai,tol] = getvalue(titre,labels,typ,default);
 
 // ----------------------------
