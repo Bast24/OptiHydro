@@ -54,11 +54,11 @@ function [fopt,xopt,gopt]=Newton(Oracle,xini)
       end
 
 //    - direction
-      D = - inv(H) * G
+      D = - inv(H) * G;
 
 //    - calcul de la longueur du pas de gradient
 
-      alpha = alphai;
+      alpha = alphai;//Wolfe(alphai,x,D,Oracle);
 
 //    - mise a jour des variables
 
@@ -86,7 +86,7 @@ function [fopt,xopt,gopt]=Newton(Oracle,xini)
            'Temps CPU         : ' string(tcpu);...
            'Critere optimal   : ' string(fopt);...
            'Norme du gradient : ' string(norm(gopt))];
-   disp('Fin de la methode de gradient a pas fixe')
+   disp('Fin de la methode de Newton')
    disp(cvge)
 
 // - visualisation de la convergence

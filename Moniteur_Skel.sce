@@ -39,8 +39,9 @@
    // Exemple : la fonction "optim" de Scilab
    //
    exec('Oracle.sce');
+   exec('Oracle_D.sce');
    exec('Optim_Scilab.sci');
-   titrgr = "Fonction optim de Scilab sur le probleme primal";
+   titrgr = "";
    exec('Wolfe_Skel.sci');
    exec('Gradient_F.sci');
    exec('BFGS.sci');
@@ -55,12 +56,30 @@
    // La dimension (n-md) est celle du probleme primal
 
    xini = 0.1 * rand(n-md,1);
+   lmb_ini = 0.1 * rand(md,1);
 
 // ----------------------------
 // Minimisation proprement dite
 // ----------------------------
 
-   [fopt,xopt,gopt] = Newton(OraclePH, xini);
+// PROBLEME PRIMAL
+
+//   [fopt,xopt,gopt] = Gradient_F(OraclePG, xini);
+//   [fopt,xopt,gopt] = Gradient_V(OraclePG, xini);
+//   [fopt,xopt,gopt] = Polak_Ribiere(OraclePG, xini);
+//   [fopt,xopt,gopt] = BFGS(OraclePG, xini);
+//   [fopt,xopt,gopt] = Newton(OraclePH, xini);
+//   [fopt,xopt,gopt] = Optim_Scilab(OraclePH, xini);
+
+// PROBLEME DUAL
+
+//   [fopt,xopt,gopt] = Gradient_F(OracleDG, lmb_ini);
+//   [fopt,xopt,gopt] = Gradient_V(OracleDG, lmb_ini);
+//   [fopt,xopt,gopt] = Polak_Ribiere(OracleDH, lmb_ini);
+//   [fopt,xopt,gopt] = BFGS(OracleDG, lmb_ini);
+//   [fopt,xopt,gopt] = Newton(OracleDH, lmb_ini);
+//   [fopt,xopt,gopt] = Optim_Scilab(OracleDH, lmb_ini);
+
 
 // --------------------------
 // Verification des resultats
