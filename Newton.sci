@@ -58,7 +58,8 @@ function [fopt,xopt,gopt]=Newton(Oracle,xini)
 
 //    - calcul de la longueur du pas de gradient
 
-      alpha = alphai;//Wolfe(alphai,x,D,Oracle);
+      //alpha = alphai;
+      alpha = Wolfe(alphai,x,D,Oracle);
 
 //    - mise a jour des variables
 

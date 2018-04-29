@@ -77,7 +77,7 @@
 //   [fopt,xopt,gopt] = Gradient_V(OracleDG, lmb_ini);
 //   [fopt,xopt,gopt] = Polak_Ribiere(OracleDH, lmb_ini);
 //   [fopt,xopt,gopt] = BFGS(OracleDG, lmb_ini);
-//   [fopt,xopt,gopt] = Newton(OracleDH, lmb_ini);
+   [fopt,xopt,gopt] = Newton(OracleDH, lmb_ini);
 //   [fopt,xopt,gopt] = Optim_Scilab(OracleDH, lmb_ini);
 
 
@@ -85,7 +85,11 @@
 // Verification des resultats
 // --------------------------
 
-   [q,z,f,p] = HydrauliqueP(xopt);
+// PROBLEME PRIMAL
+   // [q,z,f,p] = HydrauliqueP(xopt);
+   
+// PROBLEME DUAL
+   [q,z,f,p] = HydrauliqueD(xopt)
 
    Verification(q,z,f,p);
 
